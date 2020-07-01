@@ -20,6 +20,7 @@ public class Image {
   private int height;
 
   @SerializedName("Link")
+  @Expose
   private String url;
 
   public String getId() {
