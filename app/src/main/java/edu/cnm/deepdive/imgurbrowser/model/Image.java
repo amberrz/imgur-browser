@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.imgurbrowser.model;
 
+import androidx.annotation.NonNull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -8,7 +9,7 @@ public class Image {
   private String id;
 
   @Expose
-  private String tittle;
+  private String title;
 
   @Expose
   private String description;
@@ -31,12 +32,12 @@ public class Image {
     this.id = id;
   }
 
-  public String getTittle() {
-    return tittle;
+  public String getTitle() {
+    return title;
   }
 
-  public void setTittle(String tittle) {
-    this.tittle = tittle;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   public String getDescription() {
@@ -85,5 +86,15 @@ public class Image {
 
   public void setUrl(String url) {
     this.url = url;
+  }
+
+  @NonNull
+  @Override
+  public String toString() {
+    String alt = "Title N/A";
+    if (title == null) {
+      title = alt;
+    }
+    return title +""+url;
   }
 }
