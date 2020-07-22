@@ -1,4 +1,5 @@
 <resources>
 
   <dimen name="basic_margin">8dp</dimen>
+  <dimen name="half_margin">4dp</dimen>
 </resources>

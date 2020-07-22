@@ -1,19 +1,15 @@
 package edu.cnm.deepdive.imgurbrowser.controller;
 
 import android.os.Bundle;
-import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.imgurbrowser.R;
-import edu.cnm.deepdive.imgurbrowser.model.Gallery.Search;
 import edu.cnm.deepdive.imgurbrowser.viewmodel.ListViewModel;
 import edu.cnm.deepdive.imgurbrowser.view.GalleryListAdapter;
 
@@ -35,9 +31,9 @@ public class GallerySearchFragment extends Fragment {
     super.onViewCreated(view, savedInstanceState);
     viewModel = new ViewModelProvider(getActivity())
         .get(ListViewModel.class);
-    viewModel.getSearchResult().observe(getViewLifecycleOwner(), searchResult ->  {
-      if (searchResult != null) {
-        galleryArray.setAdapter(new GalleryListAdapter(getContext(), searchResult.getData()));
+    viewModel.getGalleries().observe(getViewLifecycleOwner(), galleries -> {
+      if (galleries != null) {
+        galleryArray.setAdapter(new GalleryListAdapter(getContext(), galleries));
       }
     });
   }
